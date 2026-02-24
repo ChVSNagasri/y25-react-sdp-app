@@ -1,19 +1,18 @@
 import { Routes, Route, Link } from "react-router-dom";
-import Certificate from "./Certificate";
-import Grade from "./Grade";
-import Hostel from "./Hostel";
-import Transport from "./Transport";
-import Fee from "./Fee";
-import Notfound from "./Notfound";
-import Attendence from "./Attendence";
-import Tutorial from "./Tutorial";
-import Internals from "./Internals";
-import Home from "./Home";
-import "./nav.css"
-import Profile from "./Profile";
-import Courses from "./Courses";
-import Timetable1 from "./Timetable1";
+import Home from './Home';
+import Profile from './Profile';
+import Grade from './Grade';
+import Hostel from './Hostel';
+import Certificate from './Certificate';
+import Transport from './Transport';
+import Courses from './Courses';
+import Fee from './Fee';
+import Tutorial from './Tutorial';
 import Attendence2 from "./Attendence2";
+import Internals from './Internals';
+import Timetable1 from './Timetable1';
+import Notfound from './Notfound';
+
 export default function Nav() {
   return (
     <div className="nav-container">
@@ -43,9 +42,9 @@ export default function Nav() {
           <Route path="fee" element={<Fee />} />
           <Route path="tut" element={<Tutorial />} />
           <Route path="att" element={<Attendence2 />} />
-          <Route path="int" element={<Internals />} />
+          <Route path="int" element={<Internals/>} />
            <Route path="timt" element={<Timetable1 />} />
-          <Route path="*" element={<Notfound />} />
+          <Route path="*" element={<Notfound/>} />
         </Routes>
       </div>
     </div>
