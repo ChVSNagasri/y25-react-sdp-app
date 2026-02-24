@@ -1,7 +1,7 @@
 import React from "react";
 import "./table2.css";
 
-export default function AttendancePage() {
+export default function Attendence() {
   return (
     <div className="attendance-container">
       <h1>Attendance Register</h1>
