@@ -6,11 +6,11 @@ export default function Grade() {
         <h1>2500030484 - Grade Evaluation</h1>
         <hr></hr>
         <p><str>Registered credits:32;Awarded credits:16; Awaiting Credits:16;Total Credits:151.5</str></p>
-        <div className='cgpa' bgcolor='pink'>
+        <div className='cgpa' bgcolor='white'>
           <h1>CGPA:9.57</h1>
         </div>
         <hr></hr>
-        <table border={5} bgcolor='pink'>
+        <table border={5} bgcolor='white'>
           <tr>
             <th>Course code</th>
             <th>Course Title</th>

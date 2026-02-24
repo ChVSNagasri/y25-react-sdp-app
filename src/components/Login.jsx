@@ -9,7 +9,8 @@ export default function Login() {
   const unameRef = useRef(null);
   const pwdRef = useRef(null);
 
-  const [themeColor, setThemeColor] = useState("#a3edf4");
+  const [themeColor, setThemeColor] = useState("#9ACD32"); 
+
   useEffect(() => {
     const user = sessionStorage.getItem("user");
     if (user) {
@@ -23,7 +24,6 @@ export default function Login() {
 
     if (uname === "2500030484" && pwd === "nagasri@08") {
       sessionStorage.setItem("user", uname);
-
       alert("Successfully logged in");
       navigate("/nav");
     } else {
@@ -35,35 +35,43 @@ export default function Login() {
     <div className="container">
       <div className="left-panel" style={{ backgroundColor: themeColor }}>
         <div className="image">
-          <img src={OIP} alt="Image here" width={100} height={100} />
+          <img src={OIP} alt="Image here" width={120} height={120} />
         </div>
 
-        <div
-          className="color-btn"
-          style={{ backgroundColor: "#e4abf3" }}
-          onClick={() => setThemeColor("#e4abf3")}
-        />
-        <div
-          className="color-btn"
-          style={{ backgroundColor: "#daf47b" }}
-          onClick={() => setThemeColor("#daf47b")}
-        />
-        <div
-          className="color-btn"
-          style={{ backgroundColor: "#a4c7fc" }}
-          onClick={() => setThemeColor("#a4c7fc")}
-        />
+        <h2>Welcome Back</h2>
+        <p>Select Theme</p>
+
+        <div className="color-group">
+          <div
+            className="color-btn"
+            style={{ backgroundColor: "#f9a060" }}
+            onClick={() => setThemeColor("#f9a060")}
+          />
+          <div
+            className="color-btn"
+            style={{ backgroundColor: "#fab0b0" }}
+            onClick={() => setThemeColor("#fab0b0")}
+          />
+          <div
+            className="color-btn"
+            style={{ backgroundColor: "#1E3A8A" }}
+            onClick={() => setThemeColor("#1E3A8A")}
+          />
+        </div>
       </div>
 
       <div className="right-panel">
-        <input type="text" placeholder="Enter username *" ref={unameRef} />
-        <input type="password" placeholder="Enter password *" ref={pwdRef} />
-        <button
-          style={{ backgroundColor: themeColor }}
-          onClick={handleLogin}
-        >
-          Login
-        </button>
+        <div className="login-box">
+          <h2>Login</h2>
+          <input type="text" placeholder="Enter username *" ref={unameRef} />
+          <input type="password" placeholder="Enter password *" ref={pwdRef} />
+          <button
+            style={{ backgroundColor: themeColor }}
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+        </div>
       </div>
     </div>
   );

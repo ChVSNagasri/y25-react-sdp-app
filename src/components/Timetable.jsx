@@ -5,7 +5,7 @@ export default function Timetable() {
     <div>
         <h1>Academic Timetable</h1>
         <hr></hr>
-        <table border={10} bgcolor='pink'>
+        <table border={10} bgcolor='white'>
             <tr>
                 <th>WEEKDAY</th>
                 <th>1</th>

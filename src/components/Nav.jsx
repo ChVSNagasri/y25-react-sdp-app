@@ -12,7 +12,7 @@ import Attendence2 from "./Attendence2";
 import Internals from './Internals';
 import Timetable1 from './Timetable1';
 import Notfound from './Notfound';
-
+import './nav.css'
 export default function Nav() {
   return (
     <div className="nav-container">

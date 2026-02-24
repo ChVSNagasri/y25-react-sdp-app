@@ -7,9 +7,9 @@ export default function Attendence() {
       <h1>Attendance Register</h1>
       <hr />
 
-      <h2>Course Attendance</h2>
+      <h2 style={{color:"#9ACD32"}} className='sri'>Course Attendance</h2>
 
-      <table className="attendance-table" border={5} bgcolor='pink'>
+      <table className="attendance-table" border={5} bgcolor='white'>
         <thead>
           <tr>
             <th>Course Code</th>
@@ -71,9 +71,9 @@ export default function Attendence() {
       </table>
 
       <hr />
-      <h2>CodeChef Classes</h2>
+      <h2 style={{color:"#9ACD32"}}>CodeChef Classes</h2>
 
-      <table className="attendance-table" border={5} bgcolor='pink'>
+      <table className="attendance-table" border={5} bgcolor='white'>
         <thead>
           <tr>
             <th>Date</th>

@@ -13,7 +13,6 @@ export default function Attendence2() {
       alert("Please select both Academic Year and Semester");
       return;
     }
-    // Navigate and pass state
     navigate("/attendence", { state: { year, semester } });
   };
 

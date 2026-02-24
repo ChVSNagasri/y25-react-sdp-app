@@ -5,8 +5,11 @@ td{
 }
 h1{
     text-align: center;
-     color: rgb(229, 95, 22);
+     color: #9ACD32;
 }
 th{
     color:red;
+}
+.table sri{
+    margin-left:500px;
 }
