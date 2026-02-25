@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Certificate.css";
 
 const Certificate = () => {
-  const certificates = [
+
+  const defaultCertificates = [
     { name: "Academic Excellence", date: "2025-06-15", status: "Issued" },
     { name: "Sports Achievement", date: "2025-08-20", status: "Pending" },
     { name: "Library Completion", date: "2025-12-05", status: "Issued" },
   ];
+
+  const [certificates, setCertificates] = useState([]);
+
+  useEffect(() => {
+    const storedCertificates = localStorage.getItem("certificates");
+
+    if (storedCertificates) {
+      setCertificates(JSON.parse(storedCertificates));
+    } else {
+      localStorage.setItem("certificates", JSON.stringify(defaultCertificates));
+      setCertificates(defaultCertificates);
+    }
+  }, []);
 
   return (
     <div className="certificate-page">
@@ -26,7 +40,13 @@ const Certificate = () => {
             <tr key={index}>
               <td>{cert.name}</td>
               <td>{cert.date}</td>
-              <td className={cert.status === "Issued" ? "status-issued" : "status-pending"}>
+              <td
+                className={
+                  cert.status === "Issued"
+                    ? "status-issued"
+                    : "status-pending"
+                }
+              >
                 {cert.status}
               </td>
               <td>

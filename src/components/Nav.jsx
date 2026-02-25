@@ -1,4 +1,6 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 import Home from './Home';
 import Profile from './Profile';
 import Grade from './Grade';
@@ -12,8 +14,26 @@ import Attendence2 from "./Attendence2";
 import Internals from './Internals';
 import Timetable1 from './Timetable1';
 import Notfound from './Notfound';
+
 import './nav.css'
+
 export default function Nav() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Save current path to localStorage
+  useEffect(() => {
+    localStorage.setItem("lastVisitedPath", location.pathname);
+  }, [location.pathname]);
+
+  // Optional: Load last visited page on first load
+  useEffect(() => {
+    const lastPath = localStorage.getItem("lastVisitedPath");
+    if (lastPath && lastPath !== location.pathname) {
+      navigate(lastPath);
+    }
+  }, []);
+
   return (
     <div className="nav-container">
       <nav className="nav">
@@ -30,6 +50,7 @@ export default function Nav() {
         <button><Link to="/nav/int"><h3>Internals</h3></Link></button>
         <button><Link to="/nav/timt"><h3>Timetable</h3></Link></button>
       </nav>
+
       <div className="content">
         <Routes>
           <Route index element={<Home />} />
@@ -43,7 +64,7 @@ export default function Nav() {
           <Route path="tut" element={<Tutorial />} />
           <Route path="att" element={<Attendence2 />} />
           <Route path="int" element={<Internals/>} />
-           <Route path="timt" element={<Timetable1 />} />
+          <Route path="timt" element={<Timetable1 />} />
           <Route path="*" element={<Notfound/>} />
         </Routes>
       </div>

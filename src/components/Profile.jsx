@@ -1,34 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nag from "./Nag.jpeg";
 import "./profile.css";
 
 export default function Profile() {
+  const profileData = {
+    name: "CHINTALAPTI VENKATA SAI NAGASRI",
+    uid: "2500030484",
+    admissionDate: "11-06-2025",
+    program: "UG",
+    degree: "B-Tech CSE (PBL)",
+    dob: "11-09-2008",
+    bloodGroup: "O+ve",
+    email: "chintalapatinagasrivs@gmail.com",
+    father: "Chintalapati Vani Prasad",
+    mother: "Chintalapati Mahalakshmi",
+    motherTongue: "Telugu",
+    caste: "OC",
+  };
+
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    // Save to localStorage
+    localStorage.setItem("profileData", JSON.stringify(profileData));
+
+    // Read from localStorage
+    const storedData = JSON.parse(localStorage.getItem("profileData"));
+    setProfile(storedData);
+  }, []);
+
+  if (!profile) return null;
+
   return (
     <div className="profile-container">
       <div className="card">
         <img className="nag" src={Nag} alt="Profile" />
 
-        <h1 className="name">CHINTALAPTI VENKATA SAI NAGASRI</h1>
-        <h3 className="uid">University ID: 2500030484</h3>
+        <h1 className="name">{profile.name}</h1>
+        <h3 className="uid">University ID: {profile.uid}</h3>
 
         <hr />
 
         <div className="info">
-          <p><strong>Admission Date:</strong> 11-06-2025</p>
-          <p><strong>Program:</strong> UG</p>
-          <p><strong>Major Degree:</strong> B-Tech CSE (PBL)</p>
-          <p><strong>Date of Birth:</strong> 11-09-2008</p>
-          <p><strong>Blood Group:</strong> O+ve</p>
-          <p><strong>Email:</strong> chintalapatinagasrivs@gmail.com</p>
+          <p><strong>Admission Date:</strong> {profile.admissionDate}</p>
+          <p><strong>Program:</strong> {profile.program}</p>
+          <p><strong>Major Degree:</strong> {profile.degree}</p>
+          <p><strong>Date of Birth:</strong> {profile.dob}</p>
+          <p><strong>Blood Group:</strong> {profile.bloodGroup}</p>
+          <p><strong>Email:</strong> {profile.email}</p>
         </div>
 
         <hr />
 
         <div className="info">
-          <p><strong>Father Name:</strong> Chintalapati Vani Prasad</p>
-          <p><strong>Mother Name:</strong> Chintalapati Mahalakshmi</p>
-          <p><strong>Mother Tongue:</strong> Telugu</p>
-          <p><strong>Caste Category:</strong> OC</p>
+          <p><strong>Father Name:</strong> {profile.father}</p>
+          <p><strong>Mother Name:</strong> {profile.mother}</p>
+          <p><strong>Mother Tongue:</strong> {profile.motherTongue}</p>
+          <p><strong>Caste Category:</strong> {profile.caste}</p>
         </div>
       </div>
     </div>

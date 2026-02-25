@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Transport.css";
 
 const Transport = () => {
-  const transportInfo = {
+
+  const defaultTransport = {
     busNumber: "U101",
     route: "Main Gate → Library → Hostel → Sports Complex",
     pickupTime: "07:30 AM",
@@ -10,9 +11,26 @@ const Transport = () => {
     stops: ["Main Gate", "Library", "Hostel", "Sports Complex"],
     status: "Active",
   };
+
+  const [transportInfo, setTransportInfo] = useState(null);
+
+  useEffect(() => {
+    const storedTransport = localStorage.getItem("transport");
+
+    if (storedTransport) {
+      setTransportInfo(JSON.parse(storedTransport));
+    } else {
+      localStorage.setItem("transport", JSON.stringify(defaultTransport));
+      setTransportInfo(defaultTransport);
+    }
+  }, []);
+
+  if (!transportInfo) return null;
+
   return (
     <div className="transport-page">
       <h1 className="page-title">Transport</h1>
+
       <table className="transport-table">
         <tbody>
           <tr>
@@ -33,12 +51,19 @@ const Transport = () => {
           </tr>
           <tr>
             <td>Status</td>
-            <td className={transportInfo.status === "Active" ? "status-active" : "status-inactive"}>
+            <td
+              className={
+                transportInfo.status === "Active"
+                  ? "status-active"
+                  : "status-inactive"
+              }
+            >
               {transportInfo.status}
             </td>
           </tr>
         </tbody>
       </table>
+
       <div className="stops">
         <h2>Bus Stops</h2>
         <ul>
@@ -47,8 +72,11 @@ const Transport = () => {
           ))}
         </ul>
       </div>
+
       <div className="actions">
-        <button className="btn btn-request">Request Transport</button>
+        <button className="btn btn-request">
+          Request Transport
+        </button>
       </div>
     </div>
   );

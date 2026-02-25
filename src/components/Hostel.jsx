@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./hostel.css";
 
 const Hostel = () => {
-  const studentRoom = {
+
+  const defaultRoom = {
     hostelName: "Lotus Hostel",
     roomNumber: "124",
     roommates: ["Jahnavi", "Mokthika"],
@@ -21,6 +22,21 @@ const Hostel = () => {
       "Mess menu updated for this week"
     ]
   };
+
+  const [studentRoom, setStudentRoom] = useState(null);
+
+  useEffect(() => {
+    const storedRoom = localStorage.getItem("hostelRoom");
+
+    if (storedRoom) {
+      setStudentRoom(JSON.parse(storedRoom));
+    } else {
+      localStorage.setItem("hostelRoom", JSON.stringify(defaultRoom));
+      setStudentRoom(defaultRoom);
+    }
+  }, []);
+
+  if (!studentRoom) return null;
 
   return (
     <div className="hostel-container">

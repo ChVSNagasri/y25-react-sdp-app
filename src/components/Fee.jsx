@@ -1,18 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Fee.css";
 
 const Fee = () => {
-  const fees = [
+
+  const defaultFees = [
     { name: "Tuition Fee", amount: 150000 },
     { name: "Hostel Fee", amount: 180000 },
-    { name: "AdmissionFee ", amount: 10000 }
+    { name: "Admission Fee", amount: 10000 },
   ];
 
+  const [fees, setFees] = useState([]);
+  const [paymentStatus, setPaymentStatus] = useState("Pending");
+
+  useEffect(() => {
+    const storedFees = localStorage.getItem("fees");
+    const storedStatus = localStorage.getItem("paymentStatus");
+
+    if (storedFees) {
+      setFees(JSON.parse(storedFees));
+    } else {
+      localStorage.setItem("fees", JSON.stringify(defaultFees));
+      setFees(defaultFees);
+    }
+
+    if (storedStatus) {
+      setPaymentStatus(storedStatus);
+    } else {
+      localStorage.setItem("paymentStatus", "Pending");
+    }
+  }, []);
+
   const total = fees.reduce((sum, f) => sum + f.amount, 0);
+
+  const handlePayment = () => {
+    setPaymentStatus("Paid");
+    localStorage.setItem("paymentStatus", "Paid");
+  };
 
   return (
     <div className="fees-page">
       <h1 className="page-title">Fees</h1>
+
       <table className="fees-table">
         <tbody>
           {fees.map((fee, index) => (
@@ -27,10 +55,20 @@ const Fee = () => {
           </tr>
         </tbody>
       </table>
+
       <div className="payment-status">
-        Payment Status: <span className="status-pending">Pending</span>
+        Payment Status:{" "}
+        <span className={paymentStatus === "Paid" ? "status-paid" : "status-pending"}>
+          {paymentStatus}
+        </span>
       </div>
-      <button className="btn btn-pay">Pay Online</button>
+
+      {paymentStatus === "Pending" && (
+        <button className="btn btn-pay" onClick={handlePayment}>
+          Pay Online
+        </button>
+      )}
+
       <div className="notices">
         <h2>Notices</h2>
         <ul>
