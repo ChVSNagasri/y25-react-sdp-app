@@ -1,0 +1,85 @@
+
+.internals-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #f6f0ff, #ede4ff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: #5e3b8c;
+  margin-bottom: 40px;
+}
+
+
+.semester-section {
+  margin-bottom: 40px;
+}
+
+
+.semester-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #6d28d9;
+  margin-bottom: 15px;
+}
+
+
+.internals-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(126, 34, 206, 0.12);
+}
+
+
+.internals-table thead {
+  background: #ede9fe;
+}
+
+.internals-table th {
+  padding: 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5b21b6;
+}
+
+
+.internals-table td {
+  padding: 14px;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+.internals-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+.internals-table tbody tr:hover {
+  background: #faf5ff;
+}
+
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 26px;
+  }
+
+  .semester-title {
+    font-size: 18px;
+  }
+
+  .internals-table th,
+  .internals-table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

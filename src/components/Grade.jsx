@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./cgpa.css";
+import "../cssfiles/cgpa.css";
 
 export default function Grade() {
 

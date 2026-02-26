@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Nav from './components/Nav';
 import Timetable from './components/Timetable';
-import Attendence from './components/Attendence';
+import Attendence from "./components/Attendence";
 
 function App() {
   return (
@@ -18,3 +18,4 @@ function App() {
 }
 
 export default App
+

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./hostel.css";
+import "../cssfiles/hostel.css";
 
 const Hostel = () => {
 

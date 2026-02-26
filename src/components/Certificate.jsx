@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Certificate.css";
+import "../cssfiles/Certificate.css";
 const Certificate = () => {
   const defaultCertificates = [
     { name: "Academic Excellence", date: "2025-06-15", status: "Issued" },
@@ -7,10 +7,8 @@ const Certificate = () => {
     { name: "Library Completion", date: "2025-12-05", status: "Issued" },
   ]
   const [certificates, setCertificates] = useState([]);
-
   useEffect(() => {
     const storedCertificates = localStorage.getItem("certificates");
-
     if (storedCertificates) {
       setCertificates(JSON.parse(storedCertificates));
     } else {
@@ -18,7 +16,6 @@ const Certificate = () => {
       setCertificates(defaultCertificates);
     }
   }, []);
-
   return (
     <div className="certificate-page">
       <h1 className="page-title">Certificates</h1>

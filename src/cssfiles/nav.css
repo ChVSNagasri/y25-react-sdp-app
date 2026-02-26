@@ -1,0 +1,68 @@
+
+.nav-container {
+  position: relative;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  background-color: #e9d5ff;
+  padding: 20px 15px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+
+.nav button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+
+.nav button a {
+  display: block;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: #4b006e; 
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+
+.nav button:hover a {
+  background-color: #d8b4fe; 
+}
+
+
+.nav button a.active {
+  background-color: #c4b5fd;
+  font-weight: 600;
+}
+
+
+.nav button h1,
+.nav button h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+.content {
+  margin-left: 220px;
+  padding: 25px;
+  min-height: 100vh;
+  background-color: #faf5ff; 
+}

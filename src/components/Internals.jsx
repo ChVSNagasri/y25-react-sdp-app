@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Internals.css";
-
+import "../cssfiles/Internals.css";
 const Internals = () => {
-
   const defaultInternals = [
     { code: "25SC1203E", name: "Problem Solving through Java", assessment: "Midterm 1", marks: 24, total: 25, semester: "1" },
     { code: "25MT1002E", name: "Discrete Mathematics", assessment: "Quiz 1", marks: 18, total: 20, semester: "1" },
@@ -15,12 +13,9 @@ const Internals = () => {
     { code: "25EC1204E", name: "Digital Design and Computer Architecture", assessment: "Lab", marks: 15, total: 15, semester: "2" },
     { code: "25UC1204E", name: "Communication Skills for Engineers", assessment: "Project", marks: 24, total: 25, semester: "2" },
   ];
-
   const [internals, setInternals] = useState([]);
-
   useEffect(() => {
     const storedInternals = localStorage.getItem("internals");
-
     if (storedInternals) {
       setInternals(JSON.parse(storedInternals));
     } else {
@@ -28,21 +23,17 @@ const Internals = () => {
       setInternals(defaultInternals);
     }
   }, []);
-
   const semesters = {};
   internals.forEach((item) => {
     if (!semesters[item.semester]) semesters[item.semester] = [];
     semesters[item.semester].push(item);
   });
-
   return (
     <div className="internals-page">
       <h1 className="page-title">Internals</h1>
-
       {Object.keys(semesters).map((sem) => (
         <div key={sem} className="semester-section">
-          <h2 className="semester-title" style={{color:'greenyellow'}}>Semester {sem}</h2>
-
+          <h2 className="semester-title" style={{color:'#d2a8ec'}}>Semester {sem}</h2>
           <table className="internals-table">
             <thead>
               <tr>
@@ -53,7 +44,6 @@ const Internals = () => {
                 <th>Total Marks</th>
               </tr>
             </thead>
-
             <tbody>
               {semesters[sem].map((item, index) => (
                 <tr key={index}>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./Tutorial.css";
-import datastruct from "./datastruct.jpg";
-import frontend from "./frontend.jpg";
-import Communicatiion from "./Communicatiion.webp";
-import digital from "./digital.jpg";
-import maths from "./maths.jpg";
+import "../cssfiles/Tutorial.css";
+import datastruct from "../images/datastruct.jpg";
+import frontend from "../images/frontend.jpg";
+import Communicatiion from "../images/Communicatiion.webp";
+import digital from "../images/digital.jpg";
+import maths from "../images/maths.jpg";
 
 export default function Tutorial() {
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import OIP from "./OIP.jpg";
-import "./home.css";
+import OIP from "../images/OIP.jpg";
+import "../cssfiles/home.css";
 
 export default function Home() {
 
@@ -29,10 +29,10 @@ export default function Home() {
       <div className="card">
         <img className="oip" src={OIP} alt="Profile" width={100} height={100} />
         <div className="card-body">
-          <h2 style={{ color: "#9ACD32" }}>
-            Welcome! {user.id}
+          <h2 style={{ color: "#493755" }}>
+           Welcome! {user.id}
           </h2>
-          <h2 style={{ color: "#9ACD32" }}>
+          <h2 style={{ color: "#503e5c" }}>
             {user.name}
           </h2>
         </div>

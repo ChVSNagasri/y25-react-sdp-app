@@ -1,0 +1,87 @@
+/* Container for all cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 20px;
+  justify-content: center;
+  background-color: #f8f5ff; /* pale purple background */
+}
+
+/* Individual tutorial card */
+.student-card {
+  background: #ede6fa; /* soft pale purple */
+  width: 260px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(150, 120, 220, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on cards */
+.student-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(150, 120, 220, 0.3);
+}
+
+/* Card image */
+.student-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #d1c0f7; /* soft border */
+}
+
+/* Flex row for course info */
+.course-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b2e7e; /* soft dark purple text */
+}
+
+/* Labels in course info */
+.course-info span:first-child::before {
+  content: "Code: ";
+  font-weight: bold;
+}
+
+.course-info span:last-child::before {
+  content: "Course: ";
+  font-weight: bold;
+}
+
+/* Progress bar container */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e6e0fa; /* very light purple */
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+/* Progress fill */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #cbb3ff, #a78fff); /* soft purple gradient */
+  border-radius: 6px 0 0 6px;
+  transition: width 0.5s ease;
+}
+
+/* Completion text */
+.student-card p {
+  font-size: 13px;
+  color: #5b3d99; /* medium purple */
+  margin-top: 5px;
+  font-weight: 500;
+  text-align: center;
+}

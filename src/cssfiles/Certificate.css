@@ -1,0 +1,111 @@
+
+.certificate-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #f5efff, #efe6ff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+.page-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #5e3b8c;
+}
+
+
+.certificate-table {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(128, 0, 128, 0.1);
+}
+
+
+.certificate-table thead {
+  background: #ede3ff;
+}
+
+.certificate-table th {
+  padding: 16px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5e3b8c;
+}
+
+
+.certificate-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #444;
+}
+
+.certificate-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+.certificate-table tbody tr:hover {
+  background: #faf5ff;
+}
+
+
+.status-issued {
+  color: #4c1d95;
+  font-weight: 600;
+}
+
+.status-pending {
+  color: #a16207;
+  font-weight: 600;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+
+.btn-download {
+  background: #b799ff;
+  color: #fff;
+}
+
+.btn-download:hover {
+  background: #9f7aea;
+  transform: translateY(-1px);
+}
+
+
+.btn-request {
+  background: #ede3ff;
+  color: #5e3b8c;
+}
+
+.btn-request:hover {
+  background: #d6bfff;
+  transform: translateY(-1px);
+}
+
+
+@media (max-width: 768px) {
+  .certificate-table {
+    font-size: 13px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+}

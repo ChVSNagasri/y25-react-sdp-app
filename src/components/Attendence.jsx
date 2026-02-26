@@ -1,83 +1,133 @@
-import React, { useEffect, useState } from "react";
-import "./table2.css";
-export default function Attendance() {
-  const [courseAttendance, setCourseAttendance] = useState([])
-  const [codeChefAttendance, setCodeChefAttendance] = useState([])
-  useEffect(() => {
-    const courses = [
-      { code: "25SC1204E", name: "Data Structure and Algorithms", component: "Lab", percentage: "100%" },
-      { code: "25SC1204E", name: "Data Structure and Algorithms", component: "Skill", percentage: "100%" },
-      { code: "25SC1204E", name: "Data Structure and Algorithms", component: "Practical", percentage: "90%" },
-      { code: "25SC1204E", name: "Data Structure and Algorithms", component: "Lecture", percentage: "95%" },
-      { code: "25CS1204E", name: "Frontend Development Frameworks and UI Engineering", component: "Practical", percentage: "100%" },
-      { code: "25MT1205E", name: "Mathematics for AI", component: "Lecture", percentage: "80%" },
-      { code: "25EC1204E", name: "Digital Design and Computer Architecture", component: "Skill", percentage: "80%" },
-      { code: "25UC1204E", name: "Communication Skills for Engineers", component: "Lab", percentage: "100%" },
-    ];
-    const codechef = [
-      { date: "3-1-2026", status: "Present" },
-      { date: "4-1-2026", status: "Present" },
-      { date: "11-1-2026", status: "Present" },
-      { date: "12-2-2026", status: "Present" },
-      { date: "28-1-2026", status: "Absent" },
-      { date: "29-1-2026", status: "Present" },
-      { date: "5-2-2026", status: "Present" },
-      { date: "6-2-2026", status: "Present" },
-    ];
-    if (!localStorage.getItem("courseAttendance")) {
-      localStorage.setItem("courseAttendance", JSON.stringify(courses))
+import React, { useState } from "react";
+import "../cssfiles/table.css";
+export default function Attendence() {
+  const [year, setYear] = useState("");
+  const [semester, setSemester] = useState("");
+  const [showAttendance, setShowAttendance] = useState(false);
+  const handleSearch = () => {
+    if (!year || !semester) {
+      alert("Please select both Academic Year and Semester");
+      return;
     }
-    if (!localStorage.getItem("codeChefAttendance")) {
-      localStorage.setItem("codeChefAttendance", JSON.stringify(codechef))
-    }
-    setCourseAttendance(JSON.parse(localStorage.getItem("courseAttendance")))
-    setCodeChefAttendance(JSON.parse(localStorage.getItem("codeChefAttendance")))
-  }, []);
+    setShowAttendance(true);
+  };
   return (
     <div className="attendance-container">
       <h1>Attendance Register</h1>
       <hr />
-      <h2 style={{ color: "#9ACD32" }}>Course Attendance</h2>
-      <table className="attendance-table" border={5} bgcolor="white">
-        <thead>
-          <tr>
-            <th>Course Code</th>
-            <th>Course Name</th>
-            <th>Component</th>
-            <th>Percentage</th>
-          </tr>
-        </thead>
-        <tbody>
-          {courseAttendance.map((item, index) => (
-            <tr key={index}>
-              <td>{item.code}</td>
-              <td>{item.name}</td>
-              <td>{item.component}</td>
-              <td>{item.percentage}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <hr />
-      <h2 style={{ color: "#9ACD32" }}>CodeChef Classes</h2>
-      <table className="attendance-table" border={5} bgcolor="white">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {codeChefAttendance.map((item, index) => (
-            <tr key={index}>
-              <td>{item.date}</td>
-              <td style={{ color: item.status === "Absent" ? "red" : "black" }}>
-                {item.status}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {!showAttendance && (
+        <div>
+          <h5>Enter Academic Year</h5>
+          <select value={year} onChange={(e) => setYear(e.target.value)}>
+            <option value="">Select your Academic Year</option>
+            <option value="2025-2026">2025-2026</option>
+            <option value="2024-2025">2024-2025</option>
+            <option value="2023-2024">2023-2024</option>
+          </select>
+          <h5>Enter Registered Sem</h5>
+          <select value={semester} onChange={(e) => setSemester(e.target.value)}>
+            <option value="">Reg Sem</option>
+            <option value="Odd">Odd</option>
+            <option value="Even">Even</option>
+            <option value="Summer">Summer</option>
+          </select>
+          <br /><br />
+          <button onClick={handleSearch}>Search</button>
+        </div>
+      )}
+      {showAttendance && (
+        <>
+          <h2 style={{color:'#DAAFF7'}}>
+            Attendance for {year} - {semester} Semester
+          </h2>
+          <div className="table-wrapper">
+            <table className="attendance-table" border={5} color='pink'>
+            <thead>
+              <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Component</th>
+                <th>Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>25SC1204E</td>
+                <td>Data Structure and Algorithms</td>
+                <td>Lab</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>25SC1204E</td>
+                <td>Data Structure and Algorithms</td>
+                <td>Skill</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>25SC1204E</td>
+                <td>Data Structure and Algorithms</td>
+                <td>Practical</td>
+                <td>90%</td>
+              </tr>
+              <tr>
+                <td>25SC1204E</td>
+                <td>Data Structure and Algorithms</td>
+                <td>Lecture</td>
+                <td>95%</td>
+              </tr>
+              <tr>
+                <td>25CS1204E</td>
+                <td>Frontend Development Frameworks and UI Engineering</td>
+                <td>Practical</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>25MT1205E</td>
+                <td>Mathematics for AI</td>
+                <td>Lecture</td>
+                <td>80%</td>
+              </tr>
+              <tr>
+                <td>25EC1204E</td>
+                <td>Digital Design and Computer Architecture</td>
+                <td>Skill</td>
+                <td>80%</td>
+              </tr>
+              <tr>
+                <td>25UC1204E</td>
+                <td>Communication Skills for Engineers</td>
+                <td>Lab</td>
+                <td>100%</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <hr />
+          <h2 style={{color:'#DAAFF7'}}>CodeChef Classes</h2>
+          <div className="table-wrapper">
+            <table className="attendance-table" bgcolor='pink' border={5}>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>3-1-2026</td><td>Present</td></tr>
+              <tr><td>4-1-2026</td><td>Present</td></tr>
+              <tr><td>11-1-2026</td><td>Present</td></tr>
+              <tr><td>12-2-2026</td><td>Present</td></tr>
+              <tr><td>28-1-2026</td><td style={{color:"red"}}>Absent</td></tr>
+              <tr><td>29-1-2026</td><td>Present</td></tr>
+              <tr><td>5-2-2026</td><td>Present</td></tr>
+              <tr><td>6-2-2026</td><td>Present</td></tr>
+            </tbody>
+          </table>
+          </div> 
+          <br />
+          <button onClick={() => setShowAttendance(false)}>  Back </button>
+        </>
+      )}
     </div>
   );
 }

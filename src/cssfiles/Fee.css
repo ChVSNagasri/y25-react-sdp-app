@@ -1,0 +1,126 @@
+/* Page Background */
+.fees-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #f6f0ff, #ede4ff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #5e3b8c;
+  margin-bottom: 30px;
+}
+
+/* Fees Table Card */
+.fees-table {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto 25px auto;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(126, 34, 206, 0.12);
+}
+
+/* Table Cells */
+.fees-table td {
+  padding: 16px 22px;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Fee Name */
+.fees-table td:first-child {
+  font-weight: 600;
+  color: #6d4aa2;
+}
+
+/* Total Row */
+.total-row td {
+  font-weight: 700;
+  background: #f4edff;
+  color: #4c1d95;
+}
+
+/* Payment Status */
+.payment-status {
+  text-align: center;
+  margin: 15px 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Status Colors */
+.status-paid {
+  color: #5b21b6;
+  font-weight: 700;
+}
+
+.status-pending {
+  color: #9333ea;
+  font-weight: 700;
+}
+
+/* Pay Button */
+.btn {
+  display: block;
+  margin: 0 auto 25px;
+  padding: 12px 26px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-pay {
+  background: #b799ff;
+  color: #ffffff;
+}
+
+.btn-pay:hover {
+  background: #9f7aea;
+  transform: translateY(-2px);
+}
+
+/* Notices Section */
+.notices {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 22px 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(126, 34, 206, 0.1);
+}
+
+.notices h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #5e3b8c;
+}
+
+.notices ul {
+  padding-left: 20px;
+}
+
+.notices li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 24px;
+  }
+
+  .fees-table td {
+    font-size: 13px;
+  }
+}

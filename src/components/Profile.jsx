@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Nag from "./Nag.jpeg";
-import "./profile.css";
+import Nag from "../images/Nag.jpeg";
+import "../cssfiles/profile.css";
 
 export default function Profile() {
   const profileData = {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Courses.css";
+import "../cssfiles/Courses.css";
 const Courses = () => {
   const defaultCourses = [
     { code: "25sc1203E", name: "Problem Solving through Java", semester: "1", status: "Completed" },
