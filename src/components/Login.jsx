@@ -85,11 +85,11 @@ export default function Login() {
           <input type="password" placeholder="Enter password *" ref={pwdRef} />
 
           {error && <p style={{ color: "red" }}>{error}</p>}
-
+        <div className="recaptcha">
           <ReCAPTCHA
       sitekey="6LeTh44sAAAAAB_9sWvEef204YGvLSfvs2eUQgWG"
       onChange={handleCaptcha}
-    />
+    /></div>
 
     <button style={{ backgroundColor: themeColor }} onClick={handleLogin}>Login</button>
 
