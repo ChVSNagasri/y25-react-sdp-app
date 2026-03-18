@@ -13,7 +13,6 @@ export default function Login() {
     sessionStorage.getItem("themeColor") || "#DAAFF7"
   );
 
-  // ✅ Missing states
   const [captchaToken, setCaptchaToken] = useState("");
   const [error, setError] = useState("");
 
@@ -87,12 +86,14 @@ export default function Login() {
 
           {error && <p style={{ color: "red" }}>{error}</p>}
 
-    <button style={{ backgroundColor: themeColor }} onClick={handleLogin}>Login</button>
-
-    <ReCAPTCHA
+          <ReCAPTCHA
       sitekey="6LeTh44sAAAAAB_9sWvEef204YGvLSfvs2eUQgWG"
       onChange={handleCaptcha}
     />
+
+    <button style={{ backgroundColor: themeColor }} onClick={handleLogin}>Login</button>
+
+    
         </div>
       </div>
     </div>
